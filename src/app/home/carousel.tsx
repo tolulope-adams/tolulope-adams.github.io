@@ -54,10 +54,10 @@ export default function Carousel() {
       newIndex = items.length - 1;
     }
     if (carouselDivRef.current) {
-        const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
-        const scrollBy = (newIndex - activeIndex) * scrollableWidth / 2;
-        // const scrollBy = (percentage / 100) * scrollableWidth;
-        carouselDivRef.current.scrollLeft += scrollBy;
+        // const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
+        // const scrollBy = (newIndex - activeIndex) * scrollableWidth / 2;
+        // // const scrollBy = (percentage / 100) * scrollableWidth;
+        // carouselDivRef.current.scrollLeft += scrollBy;
       }
     setActiveIndex(newIndex);
   };
