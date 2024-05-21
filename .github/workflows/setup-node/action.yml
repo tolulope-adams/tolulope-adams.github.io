@@ -1,26 +1,39 @@
-name: 'Setup Node.js Environment'
-description: 'Sets up Node.js environment, caches dependencies, and installs them if not already cached'
-inputs:
-  node-version:
-    description: 'Node.js version to use'
-    required: true
-runs:
-  using: "composite"
-  steps:
-    - name: Set up Node.js ${{ inputs.node-version }}
-      uses: actions/setup-node@v3
+name: Node.js CI
+          
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js Environment
+      uses: actions/setup-node@v4.0.2
       with:
-        node-version: ${{ inputs.node-version }}
-    
-    - name: Cache npm dependencies
-      id: cache-deps
+        node-version: ${{ matrix.node-version }}
+
+    - name: Cache dependencies
+      id: cache_dependencies
       uses: actions/cache@v3
       with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-${{ inputs.node-version }}-
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
 
     - name: Install dependencies
+      shell: bash
+      if: steps.cache_dependencies.outputs.cache-hit != 'true'
       run: npm ci
-      if: steps.cache-deps.outputs.cache-hit != 'true'
