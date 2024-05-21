@@ -102,11 +102,11 @@ export default function Carousel() {
 
   const carouselDivRef = useRef(null);
   const scrollHorizontally = (percentage: number) => {
-    if (carouselDivRef.current) {
-      const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
-      const scrollBy = (percentage / 100) * scrollableWidth;
-      carouselDivRef.current.scrollLeft += scrollBy;
-    }
+    // if (carouselDivRef.current) {
+    //   const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
+    //   const scrollBy = (percentage / 100) * scrollableWidth;
+    //   carouselDivRef.current.scrollLeft += scrollBy;
+    // }
   };
 
   return (
