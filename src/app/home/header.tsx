@@ -1,6 +1,6 @@
 import "./header.css";
 import Image from "next/image";
-import Logo from "../asset/icons/github.svg";
+import Logo from "../asset/icons/logo.svg";
 import LogoWhite from "../asset/icons/github-white.svg";
 
 export default function Header(props: { title: string; hasGradient: boolean }) {
