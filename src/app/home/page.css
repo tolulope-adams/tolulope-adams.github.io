@@ -6,7 +6,14 @@
     background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
+.main-bg{
+    /* background: rgb(10,0,83); */
+    background: linear-gradient(270deg, rgba(10,0,83,1) 0%, rgba(0,5,37,1) 40%, rgba(1,1,1,1) 100%);
+}
 
 
+/* * {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} */
 
 

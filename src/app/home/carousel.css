@@ -8,7 +8,7 @@
   background: black;
   padding: 3px;
   position: relative;
-  width: 99%;
+  width: 98%;
   border-radius: 6px;
   justify-content: center;
   align-items: center;
@@ -36,14 +36,14 @@
 
 .carousel-item::before {
   content: "";
-  width: 104%;
-  height: 102%;
+  width: 102%;
+  height: 101%;
   border-radius: 8px;
   background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
   position: absolute;
   z-index: -1;
-  top: -1%;
-  left: -2%;
+  top: -0.5%;
+  left: -1%;
   animation: spin 2.5s linear infinite;
 }
 

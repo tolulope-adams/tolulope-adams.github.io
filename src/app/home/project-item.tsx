@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import Tag from './tag'
+import Tag from '../tag'
 import Placeholder from '../asset/icons/placeholder.jpg';
 
 export default function ProjectItem(

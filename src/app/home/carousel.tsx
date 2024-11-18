@@ -3,7 +3,7 @@
 import { TouchEvent, useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
-import Tag from "./tag";
+import Tag from "../tag";
 
 import "./carousel.css";
 
