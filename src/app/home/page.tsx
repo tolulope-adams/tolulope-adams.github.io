@@ -116,7 +116,7 @@ import ReactPlayer from 'react-player';
 
                         <div className="flex flex-col gap-y-4">
 
-                            <h3 className="text-2xl lg:text-2xl font-medium">Hola, I'm</h3>
+                            <h3 className="text-2xl lg:text-2xl font-medium">Hola, I&apos;m</h3>
 
                             <h3 className="text-4xl lg:text-6xl  font-semibold tracking-tight">Tolulope Adams.</h3>
 
@@ -197,7 +197,7 @@ import ReactPlayer from 'react-player';
 
                     {featured_projects.map((project, index) => (
 
-                        <div className={`w-full flex flex-col gap-x-6 mt-4 shrink-0 lg:w-3/4 lg:flex-row ${(index % 2 == 0) ? "lg:self-start lg:justify-start" : "lg:self-end lg:justify-end"}`}>
+                        <div key={index} className={`w-full flex flex-col gap-x-6 mt-4 shrink-0 lg:w-3/4 lg:flex-row ${(index % 2 == 0) ? "lg:self-start lg:justify-start" : "lg:self-end lg:justify-end"}`}>
 
                             <Image alt="Description" src={project.image} className="w-5/6 h-64 object-cover rounded-2xl lg:w-1/3" placeholder='blur' unoptimized/>
 
@@ -301,7 +301,7 @@ import ReactPlayer from 'react-player';
 
                 <h6 className="text-xl font-normal tracking-wide ">CONTACT ME</h6>
 
-                <h3 className="mt-4 text-4xl font-bold tracking-wide ">Let&apos;s create something <span className=''>amazing</span> together</h3>
+                <h3 className="mt-4 text-4xl font-bold tracking-wide ">Let&apos;s create something <span className="">amazing</span> together</h3>
 
                 <div className="flex flex-row mt-8">
 

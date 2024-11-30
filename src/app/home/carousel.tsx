@@ -12,12 +12,14 @@ export default function Carousel(props: {
 }) {
   const items = [
     {
+      id: "001",
       icon: require("../../../public/images/github.svg"),
       title: "Mobile Development",
       description: "Like a digital chef, I blend ingredients of raw data, seasoning with statistical methods, and serve up mouth-watering insights that decision-makers cannot resist",
       tags: ["Java", "Kotlin", "Jetpack Compose", "Firebase", "Mockito", "Android Studio"]
     },
     {
+      id: "001",
       icon: require("../../../public/images/github.svg"),
       title: "Web Development",
       description:
@@ -34,6 +36,7 @@ export default function Carousel(props: {
       ],
     },
     {
+      id: "001",
       icon: require("../../../public/images/github.svg"),
       title: "Data Analysis",
       description:
@@ -119,7 +122,8 @@ export default function Carousel(props: {
 
       <div ref={carouselDivRef}  className="relative w-full z-10 flex flex-row gap-x-6 justify-between overflow-x-auto">
           {items.map((item, index) => (
-            <div className="carousel-item shrink-0 lg:shrink">
+
+            <div key={index} className="carousel-item shrink-0 lg:shrink">
 
               <Image alt="My Logo" src="./images/github.svg" width={28} height={28} priority />
 
