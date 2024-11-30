@@ -117,9 +117,9 @@ export default function Carousel(props: {
   return (
     <div className={props.className}>
 
-      <div ref={carouselDivRef}  className="relative w-full z-10 flex flex-row justify-between overflow-x-auto">
+      <div ref={carouselDivRef}  className="relative w-full z-10 flex flex-row gap-x-6 justify-between overflow-x-auto">
           {items.map((item, index) => (
-            <div className="carousel-item">
+            <div className="carousel-item shrink-0 lg:shrink">
 
               <Image alt="My Logo" src="./images/github.svg" width={28} height={28} priority />
 
@@ -127,7 +127,7 @@ export default function Carousel(props: {
                 {item.title}
               </p>
 
-              <p className="mb-4 font-normal tracking-wider">{item.description}</p>
+              <p className="mb-4 font-normal font-montserrat">{item.description}</p>
 
               <h3 className="uppercase text-center mb-4 text-lg font-bold tracking-wider">
                 SKILLS &amp; TOOLS

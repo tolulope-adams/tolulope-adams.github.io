@@ -62,47 +62,49 @@ import ReactPlayer from 'react-player';
 
 
     return (
-        <div>
+        <div className="font-montserrat leading-6">
 
             <section className="relative w-full h-svh">
 
                 <Image alt="Description" src={MyPicture} className="absolute inset-0 w-full h-full object-cover" placeholder='blur' unoptimized/>
 
-                <div className="absolute inset-0 w-full h-svh flex flex-col pb-8 lg:pb-16 justify-between bg-gradient-to-b from-indigo-700/30 to-black/100">
+                <div className="absolute inset-0 w-full h-svh flex flex-col justify-between pt-4 pb-16 bg-gradient-to-b from-indigo-700/30 to-black/100">
 
-                    <header className="w-full flex flex-row gap-x-16 items-center justify-between">
+                    <header className="flex flex-row gap-x-16 place-items-center justify-between mx-4 lg:mx-8">
 
-                        <a href='#' about='Logo' className="mx-4 my-4 lg:mx-8 lg:mt-8">
-                            <svg viewBox="0 0 48 48" className='w-12 lg:h-12 fill-current text-white'>
-                                <path d="M0 47.7268C4.50012 47.7268 9.64055 41.7 14.0871 34.264C14.8109 17.2003 20.9469 -8.52111 25.1882 2.7768C27.8603 9.89454 23.0904 25.3918 16.141 36.2503C16.244 39.5766 16.5844 42.2043 16.9574 43.5078C18.235 47.9723 19.9825 43.0177 28.4559 27.0399C28.3382 33.6035 30.4845 44.3579 33.7045 45.2773C34.0265 45.3693 34.8653 45.7419 36.1506 45.2C33.3389 43.9227 33.1381 37.1457 37.7573 30.2C44.2748 20.4 47.3975 31.8 45.1883 37C45.3891 39 44.9874 42 48 47.6C46.5941 47.4 44.3849 43 43.5816 40.6C40.1674 47.4 36.7531 47.7268 33.7045 47.7268C28.6204 47.7268 26.0468 40.7203 26.7137 35.2444C24.9484 39.5201 20.6961 49.801 16.4055 47.7268C14.9133 47.0054 14.195 43.7665 14.0462 39.2886C9.58548 45.2732 4.5073 49.0659 0 47.7268Z" fill="white"/>
-                            </svg>
-                        </a>
+                        <div className="w-12 h-12">
+                            <a href="#" about="Logo">
+                                <svg viewBox="0 0 48 48" className='fill-current text-blue-600'>
+                                    <path d="M0 47.7268C4.50012 47.7268 9.64055 41.7 14.0871 34.264C14.8109 17.2003 20.9469 -8.52111 25.1882 2.7768C27.8603 9.89454 23.0904 25.3918 16.141 36.2503C16.244 39.5766 16.5844 42.2043 16.9574 43.5078C18.235 47.9723 19.9825 43.0177 28.4559 27.0399C28.3382 33.6035 30.4845 44.3579 33.7045 45.2773C34.0265 45.3693 34.8653 45.7419 36.1506 45.2C33.3389 43.9227 33.1381 37.1457 37.7573 30.2C44.2748 20.4 47.3975 31.8 45.1883 37C45.3891 39 44.9874 42 48 47.6C46.5941 47.4 44.3849 43 43.5816 40.6C40.1674 47.4 36.7531 47.7268 33.7045 47.7268C28.6204 47.7268 26.0468 40.7203 26.7137 35.2444C24.9484 39.5201 20.6961 49.801 16.4055 47.7268C14.9133 47.0054 14.195 43.7665 14.0462 39.2886C9.58548 45.2732 4.5073 49.0659 0 47.7268Z" fill="white"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <nav className="hidden lg:flex flex-row gap-x-16">
 
-                        <nav className="flex flex-row gap-x-16 lg:mx-8">
-
-                            <a href='#' target="_blank" about='Github' className="hidden lg:flex text-white">
+                            <a href='#' target="_blank" about='Home' className="text-white">
                                 <p className="text-lg font-normal tracking-wider">Home</p>
                             </a>
 
-                            <a href='#' target="_blank" about='Github' className="hidden lg:flex text-white">
+                            <a href='#' target="_blank" about='About me' className="text-white">
                                 <p className="text-lg font-normal tracking-wider">About</p>
                             </a>
 
-                            <a href='#' target="_blank" about='Github' className="hidden lg:flex text-white">
+                            <a href='#' target="_blank" about='Github' className="text-white">
                                 <p className="text-lg font-normal tracking-wider">Portfolio</p>
                             </a>
 
-                            <a href='#' target="_blank" about='Github' className="hidden lg:flex text-white">
+                            <a href='#' target="_blank" about='Github' className="text-white">
                                 <p className="text-xl font-normal tracking-wider">Blog</p>
                             </a>
 
-                            <a href='#' target="_blank" about='Github' className="hidden lg:flex text-white">
-                                <p className="text-xl font-normal tracking-wider">Contact</p>
+                            <a href='#' target="_blank" about='Contact' className="text-white">
+                                <p className="text-xl font-normal">Contact</p>
                             </a>
 
                         </nav>
 
-                        <svg viewBox="0 0 40 40" className='lg:hidden w-12 h-12 mx-4 fill-current text-white'>
+                        <svg viewBox="0 0 40 40" className='lg:hidden w-12 h-12 fill-current text-white'>
                             <path d="M18.5 10H32" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
                             <path d="M8 20H32" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
                             <path d="M18.5 30H32" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
@@ -110,15 +112,15 @@ import ReactPlayer from 'react-player';
 
                     </header>
 
-                    <div className="flex flex-col place-content-end gap-y-6 mx-4 text-white lg:mx-8">
+                    <div className="flex flex-col place-content-end gap-y-6 mx-4 text-white lg:mx-16">
 
-                        <div className="flex flex-col gap-y-3">
+                        <div className="flex flex-col gap-y-4">
 
-                            <h3 className="text-2xl lg:text-6xl font-medium">Hola, I'm</h3>
+                            <h3 className="text-2xl lg:text-2xl font-medium">Hola, I'm</h3>
 
-                            <h3 className="text-4xl lg:text-6xl font-bold">Tolulope Adams.</h3>
+                            <h3 className="text-4xl lg:text-6xl  font-semibold tracking-tight">Tolulope Adams.</h3>
 
-                            <p className="w-full lg:w-2/5 lg:text-lg">I architect and build cutting-edge digital solutions while also uncovering key insights from data, helping businesses make informed decisions and drive innovation</p>
+                            <p className="w-full lg:w-2/5 lg:text-lg font-montserrat">I architect and build cutting-edge digital solutions while also uncovering key insights from data, helping businesses make informed decisions and drive innovation</p>
 
                         </div>
                         
@@ -136,17 +138,15 @@ import ReactPlayer from 'react-player';
 
             </section>
             
-            <section className="flex flex-col px-4 pt-16">
+            <section className="flex flex-col px-6 pt-16 lg:px-16 lg:pt-16">
 
                 <h6 className="text-xl font-normal tracking-wide">ABOUT ME</h6>
 
-                <h3 className="mt-4 text-4xl font-bold tracking-wide ">Who am I?</h3>
+                <h3 className="mt-4 text-4xl font-bold tracking-wide text-indigo-600">Who am I?</h3>
 
-                <div className="flex flex-row justify-between mt-8">
+                <div className="w-full flex flex-row gap-x-6 justify-between overflow-x-scroll mt-8 lg:gap-x-8">
 
-                    {/* <Image alt="Description" src={MyPicture} className="w-3/12 h-96 object-cover rounded-2xl" placeholder='blur' unoptimized/> */}
-
-                    <p className="lg:text-xl font-normal tracking-wider">
+                    <p className="w-full shrink-0 lg:text-xl text-black">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis mattis aliquam faucibus purus in massa tempor nec feugiat.
                         <br/><br/>
                         My career is a tale of two passions: developing cutting-edge software solutions as a Software Engineer, and uncovering key insights from data to drive business intelligence as a Data Analyst.
@@ -154,7 +154,10 @@ import ReactPlayer from 'react-player';
                         My career is a tale of two passions: developing cutting-edge software solutions as a Software Engineer, and uncovering key insights from data to drive business intelligence as a Data Analyst.
                     </p>
 
+                    <Image alt="Description" src={MyPicture} className="w-full h-96 shrink-0 object-cover rounded-2xl lg:w-1/2" placeholder='blur' unoptimized/>
+
                 </div>
+
 
                 {/* <div className="flex flex-row justify-between my-6">
 
@@ -174,39 +177,42 @@ import ReactPlayer from 'react-player';
 
             </section>
 
-            <section className="flex flex-col px-4 pt-16">
+            <section className="flex flex-col px-6 pt-16 lg:px-16 lg:pt-16">
 
                 <h6 className="text-xl font-normal tracking-wide ">EXPERTISE</h6>
 
-                <h3 className="mt-4 text-4xl font-bold tracking-wide">What Can I do?</h3>
+                <h3 className="mt-4 text-4xl font-bold tracking-tight font-montserrat">What Can I do?</h3>
 
                 <Carousel className="w-full mt-8 bg-transparent"/>
 
             </section>
 
-            <section className="pt-8 px-4">
+            <section className="pt-8 px-6 lg:px-16 lg:pt-16">
 
                 <h6 className="mt-16 text-xl font-normal tracking-wide ">FEATURED PROJECTS</h6>
 
                 <h3 className="mt-4 text-4xl font-bold tracking-wide">What Can I do?</h3>
 
-                <div className="flex flex-col gap-y-16 justify-between">
+                <div className="flex flex-row gap-y-8 justify-between overflow-x-scroll lg:flex-col">
 
                     {featured_projects.map((project, index) => (
-                        <div className={`w-full flex flex-row gap-x-6 mt-4 ${(index % 2 == 0) ? "justify-start" : "justify-end"}`}>
 
-                            <Image alt="Description" src={project.image} className="w-1/3 h-64 object-cover rounded-2xl" placeholder='blur' unoptimized/>
+                        <div className={`w-full flex flex-col gap-x-6 mt-4 shrink-0 lg:w-3/4 lg:flex-row ${(index % 2 == 0) ? "lg:self-start lg:justify-start" : "lg:self-end lg:justify-end"}`}>
 
-                            <div className={`w-1/2 h-fit flex flex-col gap-y-6 ${(index % 2 == 0) ? "order-last justify-start" : "order-first justify-end"}`}>
+                            <Image alt="Description" src={project.image} className="w-5/6 h-64 object-cover rounded-2xl lg:w-1/3" placeholder='blur' unoptimized/>
 
-                                <h3 className="text-4xl font-bold tracking-wide ">{project.name}</h3>
+                            <div className={`w-full h-fit flex flex-col gap-y-4 mt-4 ${(index % 2 == 0) ? "lg:order-last justify-start" : "lg:order-first justify-end"}`}>
 
-                                <p className="text-xl font-normal ">{project.description}</p>
+                                <h3 className="text-2xl font-bold tracking-wide">{project.name}</h3>
 
-                                <div className="flex flex-row gap-x-3">
+                                <p className="text-xl font-normal">{project.description}</p>
+
+                                <div className="flex flex-row flex-wrap gap-4">
 
                                     {project.tags.map((tag, index) => (
+
                                         <Tag key={index} name={tag} className="px-6 py-1 rounded-full bg-white text-black"/>
+                                    
                                     ))}
 
                                 </div>
@@ -220,39 +226,78 @@ import ReactPlayer from 'react-player';
 
             </section>
 
-            <section className="flex flex-col px-4 pt-16">
+            <section className="flex flex-col px-6 pt-16 lg:px-16 lg:pt-16">
 
                 <h6 className="text-xl font-normal tracking-wide ">LATEST ARTICLES</h6>
 
                 <h3 className="mt-4 text-4xl font-bold tracking-wide ">From The Blog</h3>
 
-                <div className="grid grid-cols-2 grid-rows-3 gap-16 mt-16">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3 gap-16 mt-16">
 
-                    <div className="row-start-1 row-end-4 flex flex-col gap-y-4">
-                        <Image alt="Description" src={MyPicture} className="h-96 object-cover rounded-2xl" placeholder='blur' unoptimized/>
-                        <h3 className="text-3xl font-normal">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                    <div className="w-full lg:row-start-1 row-end-4 flex flex-col gap-y-4">
+
+                        <Image alt="Description" src={MyPicture} className="w-full h-48 lg:h-96 object-cover rounded-2xl" placeholder='blur' unoptimized/>
+
+                        <a href="" target="_blank" className="text-2xl font-medium font-normal">
+                            <h3 className="">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                        </a>
+
+                        <p>Oct 31, 2024</p>
                     </div>
 
-                    <div className="row-span-1 flex flex-row gap-4 justify-between">
-                        <Image alt="Description" src={MyPicture} className="w-full h-40 object-cover rounded-2xl" placeholder='blur' unoptimized/>
-                        <h3 className="text-xl font-normal">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                    <div className="w-full flex flex-col lg:flex-row lg:row-span-1 gap-4 justify-between">
+
+                        <Image alt="Description" src={MyPicture} className="w-full h-48 lg:h-96 object-cover rounded-2xl" placeholder='blur' unoptimized/>
+
+                        <div className="flex flex-col">
+
+                            <a href="" target="_blank" className="text-2xl font-medium font-normal">
+                                <h3 className="">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                            </a>
+
+                            <p>Oct 31, 2024</p>
+
+                        </div>
+                        
                     </div>
 
-                    <div className="row-span-1 flex flex-row gap-4 justify-between">
-                        <Image alt="Description" src={MyPicture} className="w-full h-40 object-cover rounded-2xl" placeholder='blur' unoptimized/>
-                        <h3 className="text-xl font-normal">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                    <div className="w-full flex flex-col lg:flex-row lg:row-span-1 gap-4 justify-between">
+                        
+                        <Image alt="Description" src={MyPicture} className="w-full h-48 lg:h-96 object-cover rounded-2xl" placeholder='blur' unoptimized/>
+
+                        <div className="flex flex-col">
+
+                            <a href="" target="_blank" className="text-2xl font-medium font-normal">
+                                <h3 className="">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                            </a>
+
+                            <p>Oct 31, 2024</p>
+
+                        </div>
+                        
                     </div>
 
-                    <div className="row-span-1 flex flex-row gap-4 justify-between">
-                        <Image alt="Description" src={MyPicture} className="w-full h-40 object-cover rounded-2xl" placeholder='blur' unoptimized/>
-                        <h3 className="text-xl font-normal">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                    <div className="w-full flex flex-col lg:flex-row lg:row-span-1 gap-4 justify-between">
+                        
+                        <Image alt="Description" src={MyPicture} className="w-full h-48 lg:h-96 object-cover rounded-2xl" placeholder='blur' unoptimized/>
+
+                        <div className="flex flex-col">
+
+                            <a href="" target="_blank" className="text-2xl font-medium font-normal">
+                                <h3 className="">End-to-End Testing an AI Application with Playwright and GitHub Actions</h3>
+                            </a>
+
+                            <p>Oct 31, 2024</p>
+
+                        </div>
+                        
                     </div>
                     
                 </div>
 
             </section>
 
-            <footer className="flex flex-col px-4 pt-16">
+            <footer className="flex flex-col px-6 pt-16 lg:px-16 lg:pt-16">
 
                 <h6 className="text-xl font-normal tracking-wide ">CONTACT ME</h6>
 
@@ -299,7 +344,7 @@ import ReactPlayer from 'react-player';
                         </div>
                     </div> */}
 
-                    <ContactForm className='flex flex-col gap-6 py-6 md:p-6 md:rounded-lg md:bg-white text-white md:text-black'/>
+                    <ContactForm className='flex flex-col gap-6 py-6 md:p-6 md:rounded-lg md:text-black'/>
                     
                 </div>
 

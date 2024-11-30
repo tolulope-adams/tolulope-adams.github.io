@@ -14,7 +14,22 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors:{
-        "primary": "#2514EC"
+        "primary": "#2514EC",
+        lavendar: "#B798E0"
+      },
+      
+      fontFamily:{
+        montserrat: ["Montserrat", "sans-serif"]
+        // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+// .montserrat-<uniquifier> {
+//   font-family: 
+//   font-optical-sizing: auto;
+//   font-weight: <weight>;
+//   font-style: normal;
+// }
+        // dash: ['Dash Horizon', 'Mona Sans']
       }
     },
   },
