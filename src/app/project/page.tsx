@@ -55,7 +55,8 @@ export default function ProjectPage() {
                 <div className="flex flex-row relative">
 
                     {projects.map((project, index) => (
-                        <div className={`w-full flex flex-row gap-x-6 mt-4 ${(index % 2 == 0) ? "justify-start" : "justify-end"}`}>
+                        
+                        <div key={index} className={`w-full flex flex-row gap-x-6 mt-4 ${(index % 2 == 0) ? "justify-start" : "justify-end"}`}>
 
                             {/* <Image alt="Description" src={project.image} className="w-1/3 h-64 object-cover rounded-2xl" placeholder='blur' unoptimized/>
 
