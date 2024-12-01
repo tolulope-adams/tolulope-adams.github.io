@@ -1,5 +1,6 @@
 export default function Tag (
     props:{
+        key: number
         name: string;
         className: string
     }){
