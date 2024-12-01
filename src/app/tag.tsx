@@ -1,8 +1,8 @@
-export default function Tag (
-    props:{
-        key: number
-        name: string;
-        className: string
+
+export default function Tag(
+    props: {
+        name:string,
+        className?:string
     }){
     return (
         <div className={props.className}>
