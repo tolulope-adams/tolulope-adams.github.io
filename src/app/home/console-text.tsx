@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState, useRef } from "react";
-import './console-text.css';
 
 export default function ConsoleText(
   props:{
@@ -59,9 +58,9 @@ export default function ConsoleText(
 
   return (
     <div className={"flex flex-row " + props.className}>
-      <h1>I&apos;m&nbsp;</h1>
-      <h1 ref={targetRef}></h1>
-      <div ref={consoleRef} className='console-underscore'>&#95;</div>
+      <h1 className="text-4xl font-bold tracking-wider">I&apos;m&nbsp;</h1>
+      <h1 className="text-4xl font-bold tracking-wider" ref={targetRef}></h1>
+      <div ref={consoleRef} className='inline-block text-lime-200'>&#95;</div>
     </div>
   )
 }

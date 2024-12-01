@@ -1,21 +1,29 @@
 "use client";
-import "./carousel.css";
-import { TouchEvent, useEffect, useRef, useState } from "react";
-import CarouselItem from "./carousel-item";
 
-export default function Carousel() {
+import { TouchEvent, useEffect, useRef, useState } from "react";
+
+import Image from "next/image";
+import Tag from "../tag";
+
+import "./carousel.css";
+
+export default function Carousel(props: {
+  className: string;
+}) {
   const items = [
     {
-      icon: require("../asset/icons/github.svg"),
-      title: "Mobile Developer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-      tags: ["Java", "Kotlin", "Flutter", "Firebase", "JUnit", "Mockito", "IntelliJ IDEA", "Android Studio"]
+      id: "001",
+      icon: require("../../../public/images/github.svg"),
+      title: "Mobile Development",
+      description: "Like a digital chef, I blend ingredients of raw data, seasoning with statistical methods, and serve up mouth-watering insights that decision-makers cannot resist",
+      tags: ["Java", "Kotlin", "Jetpack Compose", "Firebase", "Mockito", "Android Studio"]
     },
     {
-      icon: require("../asset/icons/github.svg"),
-      title: "Web Developer",
+      id: "001",
+      icon: require("../../../public/images/github.svg"),
+      title: "Web Development",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "Like a digital chef, I blend ingredients of raw data, seasoning with statistical methods, and serve up mouth-watering insights that decision-makers cannot resist",
       tags: [
         "HTML",
         "CSS",
@@ -28,12 +36,12 @@ export default function Carousel() {
       ],
     },
     {
-      icon: require("../asset/icons/github.svg"),
-      title: "Data Analyst",
+      id: "001",
+      icon: require("../../../public/images/github.svg"),
+      title: "Data Analysis",
       description:
-        "I enjoy deriving meaningful narratives from complex datasets, using critical thinking skills, statistical analysis, and visualization techniques",
-      tags: ["Python", "R", "SQL", "Micrsoft Excel", "Power BI", "Statistics", "Data Storytelling",
-      ],
+        "Like a digital chef, I blend ingredients of raw data, seasoning with statistical methods, and serve up mouth-watering insights that decision-makers cannot resist",
+      tags: ["Python", "MS Excel", "PostgreSQL", "SAS", "GitHub", "Jupyter Notebook"]
     },
   ];
 
@@ -110,27 +118,45 @@ export default function Carousel() {
   };
 
   return (
-    <div>
-        <div ref={carouselDivRef}  className="carousel">
-            {items.map((item, index) => (
-                <CarouselItem
-                    key={index}
-                    icon={item.icon}
-                    title={item.title}
-                    description={item.description}
-                    tags={item.tags}
-                />
-            ))}
-        </div>
-        <div className="carousel-indicator"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        >
+    <div className={props.className}>
+
+      <div ref={carouselDivRef}  className="relative w-full z-10 flex flex-row gap-x-6 justify-between overflow-x-auto">
+          {items.map((item, index) => (
+
+            <div key={index} className="carousel-item shrink-0 lg:shrink">
+
+              <Image alt="My Logo" src="./images/github.svg" width={28} height={28} priority />
+
+              <p className="uppercase text-center my-4 text-lg font-bold tracking-wider text-truncate wrap-text">
+                {item.title}
+              </p>
+
+              <p className="mb-4 font-normal font-montserrat">{item.description}</p>
+
+              <h3 className="uppercase text-center mb-4 text-lg font-bold tracking-wider">
+                SKILLS &amp; TOOLS
+              </h3>
+
+              <div className="flex flex-row flex-wrap mb-1 justify-items-center justify-center gap-4">
+                {item.tags.map((tag, index) => (
+                  <Tag key={index} name={tag} className="px-6 py-3 rounded-full bg-black text-white"/>
+                ))}
+              </div>
+
+            </div>
+          ))}
+      </div>
+    </div>
+    // <div className={props.className}>
+        
+        /* <div className="carousel-indicator"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}>
             <div className="circle active" onClick={() => {updateIndex(0)}}></div>
             <div className="circle" onClick={() => {updateIndex(1)}}></div>
             <div className="circle" onClick={() => {updateIndex(2)}}></div>
-      </div>
-    </div>
+        </div> */
+    // </div>
   );
 }

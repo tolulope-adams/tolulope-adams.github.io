@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import Tag from './tag'
+import Tag from '../tag'
 import Placeholder from '../asset/icons/placeholder.jpg';
 
 export default function ProjectItem(
@@ -19,7 +19,7 @@ export default function ProjectItem(
             <div className="flex flex-row flex-wrap gap-2">
                 {
                 props.tags.map((item, index) => (
-                    <Tag key={index} name={item}/>
+                    <Tag key={index} name={item} className=""/>
                 ))
                 }
             </div>

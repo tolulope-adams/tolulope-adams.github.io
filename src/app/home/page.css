@@ -1,19 +1,19 @@
-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
+.winter-bg-image {
+    background-image: url('../../../public/images/winter.jpg');
+    /* Additional properties to control the background */
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
-.headdd{
-  width: 100%;
-  height: 100vh;
-  background-image: url("../asset/icons/my-picture.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+.main-bg{
+    /* background: rgb(10,0,83); */
+    background: linear-gradient(270deg, rgba(10,0,83,1) 0%, rgba(0,5,37,1) 40%, rgba(1,1,1,1) 100%);
 }
 
 
-
+/* * {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} */
 
 
