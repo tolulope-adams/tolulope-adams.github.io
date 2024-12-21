@@ -1,69 +1,44 @@
 @property --rotate {
   syntax: "<angle>";
-  initial-value: 132deg;
+  initial-value: 0deg;
   inherits: false;
 }
 
-.carousel-item {
-  background: black;
-  padding: 3px;
-  position: relative;
-  width: 98%;
-  border-radius: 6px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 2% 2% 8% 2%;
-  padding: 2%;
-  row-gap: 16px;
-  display: flex;
-  flex-direction: column;
-  font-size: 1em;
-  color: white;
-  cursor: pointer;
-
-}
-
-.carousel-item:hover {
-  color: rgb(88 199 250 / 100%);
-  transition: color 1s;
-}
-.carousel-item:hover:before, .carousel-item:hover:after {
-  animation: none;
-  opacity: 0;
-}
-
-
-.carousel-item::before {
-  content: "";
-  width: 102%;
-  height: 101%;
-  border-radius: 8px;
-  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-  position: absolute;
-  z-index: -1;
-  top: -0.5%;
-  left: -1%;
-  animation: spin 2.5s linear infinite;
-}
-
-.carousel-item::after {
-  position: absolute;
-  content: "";
-  top: 8%;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
+.carousel {
   width: 100%;
-  margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(10vh);
-  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-    opacity: 1;
-  transition: opacity .5s;
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  display: flex;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+
+.carousel-item {
+  width: 96%;
+  position: relative;
+  background-color: black;
+  align-self: center;
+  margin: 0.2rem;
+}
+
+.carousel-item::before, .carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  z-index: -1;
+  background-image: conic-gradient(from var(--rotate), #5ddcff, #3c67e3, #4e00c2, #3c67e3, #5ddcff);
+  border-radius: inherit;
   animation: spin 2.5s linear infinite;
 }
+
+
 
 @keyframes spin {
   0% {
@@ -72,12 +47,4 @@
   100% {
     --rotate: 360deg;
   }
-}
-
-a {
-  color: #212534;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 2rem;
 }

@@ -46,84 +46,61 @@ export default function Carousel(props: {
   ];
 
 
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-  const touchStartY = useRef<number | null>(null);
-  const touchEndY = useRef<number | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(2);
 
-  // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 50;
+  const carouselDivRef = useRef<HTMLDivElement>(null);
 
-  const updateIndex = (newIndex: number) => {
-    if (newIndex < 0) {
-      newIndex = 0;
-    } else if (newIndex >= items.length) {
-      newIndex = items.length - 1;
+  const carouselDiv = carouselDivRef.current;
+
+  const updateIndex = () => {
+    if (carouselDiv) {
+      let index = Math.round(carouselDiv.scrollLeft / carouselDiv.clientWidth);
+      setActiveIndex(0);
+        // const carouselItems = carouselDiv.querySelectorAll('.carousel-item');
+        // const carouselRect = carouselDiv.getBoundingClientRect();
+        // let closestItemIndex = 0;
+        // let closestDistance = Infinity;
+
+        // carouselItems.forEach((item, index) => {
+        //   const itemRect = item.getBoundingClientRect();
+        //   const itemCenter = itemRect.left + itemRect.width / 2;
+        //   const carouselCenter = carouselRect.left + carouselRect.width / 2;
+        //   const distance = Math.abs(carouselCenter - itemCenter);
+
+        //   if (distance < closestDistance) {
+        //     closestDistance = distance;
+        //     closestItemIndex = index;
+        //   }
+        // });
+
+        // setActiveIndex(closestItemIndex);
+      }
+
+  };
+
+
+  useEffect(() => {
+
+    if (carouselDiv) {
+      carouselDiv.addEventListener('scroll', updateIndex);
     }
-    if (carouselDivRef.current) {
-        // const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
-        // const scrollBy = (newIndex - activeIndex) * scrollableWidth / 2;
-        // // const scrollBy = (percentage / 100) * scrollableWidth;
-        // carouselDivRef.current.scrollLeft += scrollBy;
+
+    return () => {
+      if (carouselDiv) {
+        carouselDiv.removeEventListener('scroll', updateIndex);
       }
-    setActiveIndex(newIndex);
-  };
+    };
+  }, []);
 
-  const handleTouchStart = (e: TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.targetTouches[0].clientY;
-  };
 
-  const handleTouchMove = (e: TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-    touchEndY.current = e.targetTouches[0].clientY;
-  };
-
-  const handleTouchEnd = () => {
-    if (
-      touchStartX.current &&
-      touchEndX.current &&
-      touchStartY.current &&
-      touchEndY.current
-    ) {
-      const distanceX = touchEndX.current - touchStartX.current;
-      const distanceY = touchEndY.current - touchStartY.current;
-      const isLeftSwipe = distanceX < -minSwipeDistance;
-      const isRightSwipe = distanceX > minSwipeDistance;
-
-      if (isRightSwipe && distanceX > distanceY) {
-        // swipe right
-        updateIndex(activeIndex - 1);
-      }
-
-      if (isLeftSwipe && Math.abs(distanceX) > distanceY) {
-        // swipe left
-        updateIndex(activeIndex + 1);
-      }
-
-      // Reset touch positions
-      touchStartX.current = null;
-      touchEndX.current = null;
-    }
-  };
-
-  const carouselDivRef = useRef(null);
-  const scrollHorizontally = (percentage: number) => {
-    // if (carouselDivRef.current) {
-    //   const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
-    //   const scrollBy = (percentage / 100) * scrollableWidth;
-    //   carouselDivRef.current.scrollLeft += scrollBy;
-    // }
-  };
 
   return (
-    <div className={props.className}>
+    <div className={`${props.className} flex flex-col gap-y-6 items-center`}>
 
-      <div ref={carouselDivRef}  className="relative w-full z-10 flex flex-row gap-x-6 justify-between overflow-x-auto">
+      <div ref={carouselDivRef}  className="carousel flex flex-row gap-x-6 lg:gap-x-12 justify-between snap-x snap-mandatory scroll-smooth">
           {items.map((item, index) => (
 
-            <div key={index} className="carousel-item shrink-0 lg:shrink">
+            <div key={index} className="carousel-item flex flex-col shrink-0 lg:shrink gap-y-6 px-3 py-6 rounded text-center items-center snap-center">
 
               <Image alt="My Logo" src="./images/github.svg" width={28} height={28} priority />
 
@@ -143,20 +120,20 @@ export default function Carousel(props: {
                 ))}
               </div>
 
+              <p>Click to see projects</p>
+
             </div>
           ))}
+
+          
+
       </div>
+
+      <div className="flex flex-row gap-x-4 lg:hidden">
+            <div className={`w-6 h-1 rounded-full ${activeIndex == 0 ? 'bg-blue-500': 'bg-red-500'}`}></div>
+            <div className={`w-6 h-1 rounded-full ${activeIndex == 0 ? 'bg-blue-500': 'bg-red-500'}`}></div>
+            <div className={`w-6 h-1 rounded-full ${activeIndex == 2 ? 'bg-blue-500': 'bg-red-500'}`}></div>
+        </div>
     </div>
-    // <div className={props.className}>
-        
-        /* <div className="carousel-indicator"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}>
-            <div className="circle active" onClick={() => {updateIndex(0)}}></div>
-            <div className="circle" onClick={() => {updateIndex(1)}}></div>
-            <div className="circle" onClick={() => {updateIndex(2)}}></div>
-        </div> */
-    // </div>
   );
 }

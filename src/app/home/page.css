@@ -1,19 +1,29 @@
-.winter-bg-image {
-    background-image: url('../../../public/images/winter.jpg');
-    /* Additional properties to control the background */
-    background-size: cover; /* Cover the entire element */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-}
 
-.main-bg{
-    /* background: rgb(10,0,83); */
-    background: linear-gradient(270deg, rgba(10,0,83,1) 0%, rgba(0,5,37,1) 40%, rgba(1,1,1,1) 100%);
+
+.bg-main{
+   background: radial-gradient(circle closest-side, #1b2735 0%, #00051c 100%);
+   color: white;
 }
 
 
-/* * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-} */
+.main_show {
+    visibility: visible;
+    /* overflow: hidden; */
+    transition: visibility 700ms ease-in-out;
+}
+
+.main_hide {
+    visibility: hidden;
+    /* overflow: hidden; */
+    transition: visibility 700ms, overflow 700ms ease-in-out;
+}
+
+
+
+
+
+
+
+
 
 
