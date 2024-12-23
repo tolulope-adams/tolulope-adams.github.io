@@ -2,28 +2,19 @@
 
 import { useState } from "react";
 
-
-import ContactForm from "./contact-form";
-
-
-import Carousel from "./carousel";
-
 import "./page.css";
 
-
-
+import ContactForm from "./contact-form";
+import Carousel from "./carousel";
 import "../toggle-button";
+import Tag from "../tag";
 
 import MyPicture from '../../../public/images/my-picture.jpeg';
-
 import Image from 'next/image';
-
-import Tag from "../tag";
 
 import ReactPlayer from 'react-player';
 
-
- export default function HomePage() {
+export default function HomePage() {
 
     const hobbies = [
         {
@@ -64,11 +55,11 @@ import ReactPlayer from 'react-player';
     const [openNavDrawer, setOpenNavDrawer] = useState(false);
 
     return (
-        <div>
+        <div >
 
-            <header className="fixed top-0 left-0 w-full h-full justify-between z-10 flex flex-col lg:h-min lg:flex-row ">
+            <header className={`fixed top-0 left-0 w-full ${openNavDrawer ? 'h-full' : 'h-fit'} justify-between z-40 flex flex-col lg:flex-row`}>
 
-                <div className="flex flex-row items-center justify-between px-4 py-2 lg:px-10 bg-main">
+                <div className="flex flex-row items-center justify-between px-4 py-4 lg:px-10 bg-black">
 
                     <a href="#" about="Logo">
                         <div className="w-10 h-10 lg:w-10 lg:h-10">
@@ -91,51 +82,49 @@ import ReactPlayer from 'react-player';
                 </div>
                 
                 <nav className={
-                    `grow px-4 py-2 flex flex-col place-items-start gap-y-6 bg-main lg:px-10 lg:flex-row lg:place-content-end lg:gap-x-16
-                    transition transform duration-700 ease-in-out ${openNavDrawer ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}`
+                    `grow px-4 py-4 flex flex-col place-items-start gap-y-6 bg-black lg:px-10 lg:flex-row lg:place-content-end lg:gap-x-16
+                    transition-transform duration-1000 ease-in-out  ${openNavDrawer ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}`
                     }>
 
-                    <a href='#' target="_blank" about='Home' className="py-3 text-lg text-white">
+                    <a href='#' target="_blank" about='Home' className="py-3 text-white">
                         <p className="font-normal tracking-wider">Home</p>
                     </a>
 
-                    <a href='#' target="_blank" about='About me' className="py-3 text-lg text-white ">
+                    <a href='#' target="_blank" about='About me' className="py-3 text-white ">
                         <p className="font-normal tracking-wider">About</p>
                     </a>
 
-                    <a href='#' target="_blank" about='Github' className="py-3 text-lg text-white">
+                    <a href='#' target="_blank" about='Github' className="py-3 text-white">
                         <p className="font-normal tracking-wider">Portfolio</p>
                     </a>
 
-                    <a href='#' target="_blank" about='Github' className="py-3 text-lg text-white">
+                    <a href='#' target="_blank" about='Github' className="py-3 text-white">
                         <p className="font-normal tracking-wider">Blog</p>
                     </a>
 
-                    <a href='#' target="_blank" about='Contact' className="py-3 text-lg text-white ">
+                    <a href='#' target="_blank" about='Contact' className="py-3 text-white ">
                         <p className="font-normal">Contact</p>
                     </a>
 
                 </nav>
 
-                
-
             </header>
 
-            <main className={`bg-main ${openNavDrawer ? '' : ''}`}>
+            <main className={`bg-main z-10 ${openNavDrawer ? '' : ''}`}>
 
-                <section className="relative w-full h-svh">
+                <section className="relative w-full h-svh flex flex-col pt-4 pb-16 justify-center place-items-center">
 
-                    <div className="w-full h-svh flex flex-col pt-4 pb-16 ">
+                    {/* <Image alt="Description" src={MyPicture} className="w-64 h-64 object-cover rounded-full" placeholder='blur' unoptimized/> */}
 
-                        <div className="flex flex-col self-center place-content-end gap-y-6 mx-4 text-white lg:mx-16">
+                    <div className="w-3/4 flex flex-col place-items-center gap-y-6 mx-4 text-white lg:mx-16">
 
                             <div className="flex flex-col gap-y-4">
 
                                 <h3 className="text-2xl lg:text-2xl font-medium">Hola, I&apos;m</h3>
 
-                                <h3 className="text-4xl lg:text-6xl  font-semibold tracking-tight">Tolulope Adams.</h3>
+                                <h3 className="text-4xl lg:text-6xl font-semibold tracking-tight">Tolulope Adams.</h3>
 
-                                <p className="w-full lg:w-2/5 lg:text-lg font-montserrat">I build cutting-edge digital solutions while also uncovering key insights from data, helping businesses make informed decisions and drive innovation</p>
+                                <p className="lg:text-lg font-montserrat">I build cutting-edge digital solutions while also uncovering key insights from data, helping businesses make informed decisions and drive innovation</p>
 
                             </div>
                             
@@ -147,8 +136,6 @@ import ReactPlayer from 'react-player';
                                 
                             </div>
 
-                        </div>
-                        
                     </div>
 
                 </section>
@@ -161,7 +148,7 @@ import ReactPlayer from 'react-player';
 
                     <div className="w-full flex flex-row gap-x-6 justify-between overflow-x-scroll mt-8 lg:gap-x-8">
 
-                        <p className="w-full shrink-0 lg:text-xl">
+                        <p className="w-1/2 shrink-0 lg:text-xl">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis mattis aliquam faucibus purus in massa tempor nec feugiat.
                             <br/><br/>
                             My career is a tale of two passions: developing cutting-edge software solutions as a Software Engineer, and uncovering key insights from data to drive business intelligence as a Data Analyst.
@@ -169,12 +156,11 @@ import ReactPlayer from 'react-player';
                             My career is a tale of two passions: developing cutting-edge software solutions as a Software Engineer, and uncovering key insights from data to drive business intelligence as a Data Analyst.
                         </p>
 
-                        <Image alt="Description" src={MyPicture} className="w-full h-96 shrink-0 object-cover rounded-2xl lg:w-1/2" placeholder='blur' unoptimized/>
+                        <Image alt="Description" src={MyPicture} className="grow object-contain rounded-2xl" placeholder='blur' unoptimized/>
 
                     </div>
 
-
-                    {/* <div className="flex flex-row justify-between my-6">
+                    <div className="flex flex-row justify-between my-6">
 
                         <hr className="w-5/12 h-px mt-10 bg-red-600 "></hr>
 
@@ -188,17 +174,17 @@ import ReactPlayer from 'react-player';
                             <Image alt="My Logo" src={hobby.icon} width={28} height={28} priority />
                         ))}
 
-                    </div> */}
+                    </div>
 
                 </section>
 
-                <section className="flex flex-col px-6 pt-16 lg:px-16 lg:pt-16">
+                <section className="h-svh flex flex-col px-6 pt-16 lg:px-16 lg:pt-16 ">
 
                     <h6 className="text-lg font-normal tracking-wide ">EXPERTISE</h6>
 
                     <h3 className="mt-4 text-3xl font-bold tracking-tight font-montserrat">What Can I do?</h3>
 
-                    <Carousel className="w-full mt-8 bg-transparent"/>
+                    <Carousel className="w-full mt-8"/>
 
                 </section>
 
@@ -233,8 +219,6 @@ import ReactPlayer from 'react-player';
                                     </div>
 
                                 </div>
-
-        
 
                             </div>
                         ))}
@@ -322,24 +306,9 @@ import ReactPlayer from 'react-player';
 
                     <div className="flex flex-row mt-8">
 
-                        {/* <div className='flex flex-col gap-16'>
-                            <h1 className="text-4xl leading-normal md:leading-relaxed font-semibold">Let&apos;s create something <span className=''>amazing</span> together</h1>
-                            
+                        <div className='flex flex-col gap-16'>
+
                             <div className='hidden md:flex md:flex-col gap-16'>
-                                <div className='md:flex md:flex-row md:gap-4 md:items-center'>
-                                    <svg viewBox="0 -960 960 960" className='w-8 h-8 fill-current md:text-white'><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
-                                    <p>tolulopeadams7000@gmail.com</p>
-                                </div>
-                                <div className='md:flex md:flex-row md:gap-4 md:items-center'>
-                                    <svg viewBox="0 -960 960 960" className='w-8 h-8 fill-current md:text-white'><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>
-                                    <p>+234 809 849 4860</p>
-                                </div>
-                                <div className='md:flex md:flex-row md:gap-4 md:items-center'>
-                                    <svg viewBox="0 -960 960 960" className='w-8 h-8 fill-current md:text-white'>
-                                        <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Z"/>
-                                    </svg>
-                                    <p>Lagos, Nigeria</p>
-                                </div>
 
                                 <div className='flex flex-row gap-16'>
                                     <a href='https://github.com/tolulope-adams' target="_blank" about='Github'>
@@ -359,7 +328,7 @@ import ReactPlayer from 'react-player';
                                     </a>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
 
                         <ContactForm className='flex flex-col gap-6 py-6 md:p-6 md:rounded-lg md:text-black'/>
                         

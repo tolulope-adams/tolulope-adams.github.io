@@ -1,9 +1,27 @@
 
-
 .bg-main{
-   background: radial-gradient(circle closest-side, #1b2735 0%, #00051c 100%);
+    /* background-image: radial-gradient(ellipse at top, #3c67e3, #4e00c2, #0d0020, #000000); */
+    background-image: radial-gradient(circle closest-side, #3c67e3, #4e00c2, #0d0020, #000000);
+   /* background-image: radial-gradient(circle at top, #1b2735 0%, #00051c 100%); */
    color: white;
 }
+
+.visi{
+    /* display: none; */
+    visibility: hidden;
+    /* opacity: 0; */
+    transition: visibility 700ms 700ms ease-in-out;
+}
+
+@keyframes remove {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
 
 
 .main_show {

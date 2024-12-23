@@ -1,6 +1,6 @@
 "use client";
 
-import { TouchEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 import Tag from "../tag";
@@ -31,7 +31,6 @@ export default function Carousel(props: {
         "React.js",
         "Tailwind",
         "Spring Boot",
-        "Github",
         "Visual Studio",
       ],
     },
@@ -55,27 +54,8 @@ export default function Carousel(props: {
   const updateIndex = () => {
     if (carouselDiv) {
       let index = Math.round(carouselDiv.scrollLeft / carouselDiv.clientWidth);
-      setActiveIndex(0);
-        // const carouselItems = carouselDiv.querySelectorAll('.carousel-item');
-        // const carouselRect = carouselDiv.getBoundingClientRect();
-        // let closestItemIndex = 0;
-        // let closestDistance = Infinity;
-
-        // carouselItems.forEach((item, index) => {
-        //   const itemRect = item.getBoundingClientRect();
-        //   const itemCenter = itemRect.left + itemRect.width / 2;
-        //   const carouselCenter = carouselRect.left + carouselRect.width / 2;
-        //   const distance = Math.abs(carouselCenter - itemCenter);
-
-        //   if (distance < closestDistance) {
-        //     closestDistance = distance;
-        //     closestItemIndex = index;
-        //   }
-        // });
-
-        // setActiveIndex(closestItemIndex);
+      setActiveIndex(index);
       }
-
   };
 
 
@@ -95,12 +75,12 @@ export default function Carousel(props: {
 
 
   return (
-    <div className={`${props.className} flex flex-col gap-y-6 items-center`}>
+    <div className={`${props.className} relative flex flex-col gap-y-6 items-center z-10`}>
 
-      <div ref={carouselDivRef}  className="carousel flex flex-row gap-x-6 lg:gap-x-12 justify-between snap-x snap-mandatory scroll-smooth">
+      <div ref={carouselDivRef}  className="carousel flex flex-row gap-x-6 z-0 lg:gap-x-12 justify-between snap-x snap-mandatory scroll-smooth">
           {items.map((item, index) => (
 
-            <div key={index} className="carousel-item flex flex-col shrink-0 lg:shrink gap-y-6 px-3 py-6 rounded text-center items-center snap-center">
+            <div key={index} className="carousel-item flex flex-col shrink-0 lg:shrink gap-y-4 px-3 py-6 rounded text-center items-center snap-center">
 
               <Image alt="My Logo" src="./images/github.svg" width={28} height={28} priority />
 
@@ -124,8 +104,6 @@ export default function Carousel(props: {
 
             </div>
           ))}
-
-          
 
       </div>
 
