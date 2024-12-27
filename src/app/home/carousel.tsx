@@ -16,7 +16,7 @@ export default function Carousel(props: {
       icon: require("../../../public/images/github.svg"),
       title: "Mobile Development",
       description: "Like a digital chef, I blend ingredients of raw data, seasoning with statistical methods, and serve up mouth-watering insights that decision-makers cannot resist",
-      tags: ["Java", "Kotlin", "Jetpack Compose", "Firebase", "Mockito", "Android Studio"]
+      tags: ["Java", "Kotlin", "Jetpack Compose", "Firebase", "Mockito"]
     },
     {
       id: "001",
@@ -31,7 +31,6 @@ export default function Carousel(props: {
         "React.js",
         "Tailwind",
         "Spring Boot",
-        "Visual Studio",
       ],
     },
     {
@@ -75,9 +74,9 @@ export default function Carousel(props: {
 
 
   return (
-    <div className={`${props.className} relative flex flex-col gap-y-6 items-center z-10`}>
+    <div className={`${props.className} relative flex flex-col gap-y-6 items-center `}>
 
-      <div ref={carouselDivRef}  className="carousel flex flex-row gap-x-6 z-0 lg:gap-x-12 justify-between snap-x snap-mandatory scroll-smooth">
+      <div ref={carouselDivRef}  className="carousel w-full flex flex-row gap-x-6 z-0 lg:gap-x-12 justify-between overflow-x-scroll snap-x snap-mandatory scroll-smooth">
           {items.map((item, index) => (
 
             <div key={index} className="carousel-item flex flex-col shrink-0 lg:shrink gap-y-4 px-3 py-6 rounded text-center items-center snap-center">

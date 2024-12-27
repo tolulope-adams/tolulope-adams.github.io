@@ -1,26 +1,100 @@
+@property --transn {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
 
-.bg-main{
+@property --transn2 {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+
+@property --state {
+    syntax: "running | paused";
+    initial-value: running;
+    inherits: true;
+}
+
+
+.bg-main {
     /* background-image: radial-gradient(ellipse at top, #3c67e3, #4e00c2, #0d0020, #000000); */
-    background-image: radial-gradient(circle closest-side, #3c67e3, #4e00c2, #0d0020, #000000);
-   /* background-image: radial-gradient(circle at top, #1b2735 0%, #00051c 100%); */
-   color: white;
+    /* background-image: radial-gradient(circle closest-side, #3c67e3, #4e00c2, #0d0020, #000000); */
+    /* background-image: radial-gradient(circle at top, #1b2735 0%, #00051c 100%); */
+    background: #00051c;
+    color: white;
 }
 
-.visi{
-    /* display: none; */
-    visibility: hidden;
-    /* opacity: 0; */
-    transition: visibility 700ms 700ms ease-in-out;
+
+
+.bg-lll {
+    /* background-image: url('../../../public/images/my-picture.jpeg');
+    object-fit: contain; */
 }
 
-@keyframes remove {
-  0% {
-    visibility: visible;
-  }
-  100% {
-    visibility: hidden;
-  }
+.bg-graf {
+    background: linear-gradient(to right, #00051c 20%, transparent);
+    z-index: 10;
 }
+
+
+
+/* .bg-lll {
+    background-image: image( url(https://images.unsplash.com/photo-1632210130004-3b3b3b3b3b3b) );
+    z-index: -1;
+} */
+
+
+
+.bnk {
+    /* transform: translateX(var(--transn)); */
+    /* transform: translateX(100%); */
+    animation: moveForward 10s linear infinite;
+    transition: visibility 100s ease-in-out;
+}
+
+.bnkk {
+    /* transform: translateX(var(--transn2));/ */
+    animation: moveForwa 10s linear infinite;
+}
+
+
+@keyframes moveForward {
+    0% {
+        transform: translateX(0);
+    }
+
+    49.999999% {
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+
+    50% {
+        transform: translateX(100%);
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveForwa {
+    0% {
+        transform: translateX(0);
+    }
+
+    99.999999% {
+        transform: translateX(-200%);
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateX(0);
+        visibility: hidden;
+    }
+}
+
 
 
 
@@ -35,13 +109,3 @@
     /* overflow: hidden; */
     transition: visibility 700ms, overflow 700ms ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
