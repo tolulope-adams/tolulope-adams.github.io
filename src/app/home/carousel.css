@@ -1,16 +1,10 @@
 @property --rotate {
   syntax: "<angle>";
   initial-value: 0deg;
-  inherits: false;
+  inherits: true;
 }
 
 .carousel {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  overflow-x: auto;
-  display: flex;
-  scroll-behavior: smooth;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
@@ -23,20 +17,20 @@
 .carousel-item {
   width: 96%;
   position: relative;
-  background-color: black;
-  align-self: center;
   margin: 0.2rem;
+  background: black;
 }
 
-.carousel-item::before, .carousel-item::after {
+.carousel-item::before, .carousel-item::after{
   content: "";
   position: absolute;
   inset: -0.2rem;
   z-index: -1;
-  background-image: conic-gradient(from var(--rotate), #5ddcff, #3c67e3, #4e00c2, #3c67e3, #5ddcff);
   border-radius: inherit;
+  background-image: conic-gradient(from var(--rotate), #5ddcff, #3c67e3, #4e00c2, #3c67e3, #5ddcff);
   animation: spin 2.5s linear infinite;
 }
+
 
 
 
@@ -46,5 +40,17 @@
   }
   100% {
     --rotate: 360deg;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
