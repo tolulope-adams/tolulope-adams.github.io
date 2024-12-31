@@ -37,10 +37,19 @@
 
 body {
   /* color: rgb(var(--foreground-rgb)); */
-  
+
   background-color: #F0F4FA;
   box-sizing: border-box;
 
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 @layer utilities {
@@ -50,10 +59,12 @@ body {
   }
 }
 
+
 @keyframes spin {
   0% {
     --rotate: 0deg;
   }
+
   100% {
     --rotate: 360deg;
   }

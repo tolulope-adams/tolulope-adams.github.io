@@ -1,65 +1,40 @@
-@property --transn {
-    syntax: "<percentage>";
-    initial-value: 0%;
-    inherits: false;
-}
-
-@property --transn2 {
-    syntax: "<percentage>";
-    initial-value: 0%;
-    inherits: false;
-}
-
-@property --state {
-    syntax: "running | paused";
-    initial-value: running;
-    inherits: true;
-}
-
-
 .bg-main {
     /* background-image: radial-gradient(ellipse at top, #3c67e3, #4e00c2, #0d0020, #000000); */
     /* background-image: radial-gradient(circle closest-side, #3c67e3, #4e00c2, #0d0020, #000000); */
     /* background-image: radial-gradient(circle at top, #1b2735 0%, #00051c 100%); */
     background: #00051c;
     color: white;
+    
 }
 
 
-
-.bg-lll {
-    /* background-image: url('../../../public/images/my-picture.jpeg');
-    object-fit: contain; */
+.glowing-text {
+    position: relative;
+    color: transparent;
+    background-clip: text;   
 }
 
-.bg-graf {
-    background: linear-gradient(to right, #00051c 20%, transparent);
-    z-index: 10;
-}
-
-
-
-/* .bg-lll {
-    background-image: image( url(https://images.unsplash.com/photo-1632210130004-3b3b3b3b3b3b) );
-    z-index: -1;
-} */
-
-
-
-.bnk {
-    /* transform: translateX(var(--transn)); */
-    /* transform: translateX(100%); */
-    animation: moveForward 10s linear infinite;
-    transition: visibility 100s ease-in-out;
-}
-
-.bnkk {
-    /* transform: translateX(var(--transn2));/ */
-    animation: moveForwa 10s linear infinite;
+.glowing-text::before {
+    content: "Tolulope Adams.";
+    color: transparent;
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    background: linear-gradient(to right, #5ddcff, #3c67e3, #4e00c2, #3c67e3, #5ddcff);
+    background-clip: text;
 }
 
 
-@keyframes moveForward {
+.first_train {
+    animation: first_move 10s linear infinite;
+}
+
+.second_train {
+    animation: second_move 10s linear infinite;
+}
+
+
+@keyframes first_move {
     0% {
         transform: translateX(0);
     }
@@ -79,7 +54,7 @@
     }
 }
 
-@keyframes moveForwa {
+@keyframes second_move {
     0% {
         transform: translateX(0);
     }
@@ -95,17 +70,12 @@
     }
 }
 
-
-
-
 .main_show {
     visibility: visible;
-    /* overflow: hidden; */
     transition: visibility 700ms ease-in-out;
 }
 
 .main_hide {
     visibility: hidden;
-    /* overflow: hidden; */
     transition: visibility 700ms, overflow 700ms ease-in-out;
 }
