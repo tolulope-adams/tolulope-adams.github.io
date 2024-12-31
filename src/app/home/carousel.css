@@ -4,15 +4,6 @@
   inherits: true;
 }
 
-.carousel {
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
-}
-
-.carousel::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
-}
-
 
 .carousel-item {
   width: 96%;
@@ -32,7 +23,27 @@
 }
 
 
+.x-shape {
+  position: relative;
+  background: transparent;
+}
 
+.x-shape::before,
+.x-shape::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 20%;
+  /* background: red; */
+}
+
+.x-shape::before {
+  transform: rotate(45deg);
+}
+
+.x-shape::after {
+  transform: rotate(-45deg);
+}
 
 @keyframes spin {
   0% {
@@ -42,6 +53,10 @@
     --rotate: 360deg;
   }
 }
+
+
+
+
 
 @keyframes float {
   0% {
