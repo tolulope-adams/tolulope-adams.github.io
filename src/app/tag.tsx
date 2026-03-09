@@ -1,16 +1,12 @@
+interface TagProps {
+    name: string;
+    className?: string;
+}
 
-import "./tag.css";
-
-
-
-export default function Tag(
-    props: {
-        name: string,
-        className?: string
-    }) {
+export default function Tag({ name, className = '' }: TagProps) {
     return (
-        <div className={`${props.className}`}>
-            <p className="text-base font-medium tracking-wider">{props.name}</p>
-        </div>
-    )
+        <span className={`px-3 py-1 text-sm font-medium rounded-full border border-white/20 bg-white/10 text-white tracking-wide ${className}`}>
+            {name}
+        </span>
+    );
 }

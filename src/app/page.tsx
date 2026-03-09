@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./page.css";
 import Carousel from "./carousel";
 import "./toggle-button";
-import Tag from "./tag";
+// import Tag from "../components/Tag";
 import { hobbies } from '../data/portfolio';
 
 import Hero from "@/components/Hero";
