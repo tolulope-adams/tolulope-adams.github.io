@@ -2,46 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Dash Horizon';
-  src:
-    url('../../public/dash-horizon.otf') format('woff2 supports variations'),
-    url('../../public/dash-horizon.otf') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
-
-@font-face {
-  font-family: 'Mona Sans';
-  src:
-    url('../../public/Mona-Sans.woff2') format('woff2 supports variations'),
-    url('../../public/Mona-Sans.woff2') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
-  --background-gradient: linear-gradient(to bottom, #001233, #001845, #211565, #25177a);
+  --aura-cyan: #2563eb;
+  --aura-blue: #1d4ed8;
+  --aura-purple: #1e40af;
+  --aura-pink: #3b82f6;
+  --aura-dark: #f0f0f0;
+  --aura-darker: #ffffff;
+  --background-gradient: linear-gradient(to bottom, var(--aura-darker), var(--aura-dark));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --aura-cyan: #38bdf8;
+  --aura-blue: #60a5fa;
+  --aura-purple: #818cf8;
+  --aura-pink: #a78bfa;
+  --aura-dark: #050505;
+  --aura-darker: #000000;
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb)); */
-
-  background-color: #F0F4FA;
-  box-sizing: border-box;
-
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-gradient);
 }
+
 
 .scrollbar-hide {
   scrollbar-width: none;
