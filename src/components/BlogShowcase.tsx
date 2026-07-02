@@ -19,16 +19,19 @@ export default function BlogShowcase() {
     };
 
     return (
-        <section className="mt-16 flex flex-col px-6 pt-16 lg:px-16 lg:pt-16 pb-16">
+        <section className="px-6 pt-16 lg:pt-24 lg:px-12 pb-16">
+            <div className="max-w-7xl mx-auto flex flex-col">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="flex flex-col gap-y-4 mb-4"
+                className="mb-12"
             >
-                <h2 className="text-xl font-normal tracking-wide text-aura-purple">LATEST ARTICLES</h2>
-                <h1 className="text-4xl font-instrument font-bold tracking-wide">From The Blog</h1>
+                <div className="pb-1">
+                    <p className="text-sm font-jost tracking-[0.3em] uppercase text-aura-cyan mb-1">Writing</p>
+                    <h2 className="text-4xl lg:text-5xl font-instrument font-bold">Ideas worth sharing.</h2>
+                </div>
             </motion.div>
 
             <motion.div
@@ -52,14 +55,26 @@ export default function BlogShowcase() {
                         </div>
 
                         <div className={`flex flex-col gap-y-3 ${index !== 0 ? 'lg:w-1/2' : ''}`}>
-                            <p className="text-xs font-bold uppercase tracking-widest opacity-60 text-aura-pink mb-1">{article.date_published}</p>
-                            <a href="#" className="text-2xl lg:text-3xl font-jost font-bold leading-tight group-hover:text-aura-cyan transition-colors duration-300">
-                                <h3>{article.title}</h3>
-                            </a>
+                            <div className="flex items-center gap-2 mb-1">
+                                <p className="text-sm font-bold uppercase tracking-widest opacity-60 text-aura-pink">{article.date_published}</p>
+                                {article.url === "#" && (
+                                    <span className="text-xs font-jost font-semibold uppercase tracking-widest opacity-40 border border-black/10 dark:border-white/10 rounded-full px-2 py-0.5">
+                                        Coming soon
+                                    </span>
+                                )}
+                            </div>
+                            {article.url === "#" ? (
+                                <h3 className="text-2xl lg:text-3xl font-jost font-bold leading-tight opacity-70">{article.title}</h3>
+                            ) : (
+                                <a href={article.url} className="text-2xl lg:text-3xl font-jost font-bold leading-tight group-hover:text-aura-cyan transition-colors duration-300">
+                                    <h3>{article.title}</h3>
+                                </a>
+                            )}
                         </div>
                     </motion.div>
                 ))}
             </motion.div>
+            </div>
         </section>
     );
 }
