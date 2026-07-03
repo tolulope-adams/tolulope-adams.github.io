@@ -178,7 +178,7 @@ export default function ProjectShowcase() {
     const [selected, setSelected] = useState<Project | null>(null);
 
     return (
-        <section id="projects" className="pt-16 lg:pt-24 px-6 lg:px-12">
+        <section id="projects" className="pt-16 lg:pt-24 px-6 lg:px-2">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -188,7 +188,7 @@ export default function ProjectShowcase() {
                     className="mb-12"
                 >
                     <div className="pb-1">
-                        <p className="text-sm font-jost tracking-[0.3em] uppercase text-aura-cyan mb-1">Work</p>
+                        <p className="text-sm font-jost tracking-[0.3em] uppercase text-aura-cyan mb-1">FEATURED PROJECTS</p>
                         <h2 className="text-4xl lg:text-5xl font-instrument font-bold">Things I shipped.</h2>
                     </div>
                 </motion.div>

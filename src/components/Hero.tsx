@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
-const TITLES = ["Software Engineer", "Mobile Developer", "Backend Architect", "Web Builder"];
+const TITLES = ["Mobile Developer", "Backend Engineer", "Data Analyst"];
 
 const TERMINAL_LINES = [
     { type: "cmd",    text: "whoami" },
@@ -125,7 +125,7 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-6 pt-4 pb-10 lg:py-0">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-2 pt-4 pb-10 lg:py-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center lg:min-h-0 py-0 lg:py-20">
 
                     {/* ── Left column ── */}
@@ -138,7 +138,14 @@ export default function Hero() {
                         {/* Intro */}
                         <motion.div variants={item} className="flex flex-col gap-4 max-w-xl">
                             <h1 className="text-4xl lg:text-7xl font-instrument font-bold leading-tight">
-                                Hi there 👋
+                                Hey there{" "}
+                                <motion.span
+                                    className="inline-block origin-[70%_70%]"
+                                    animate={shouldReduceMotion ? undefined : { rotate: [0, 14, -8, 14, -4, 10, 0] }}
+                                    transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" }}
+                                >
+                                    👋🏽
+                                </motion.span>
                             </h1>
                             <p className="text-lg lg:text-3xl font-jost opacity-75 leading-relaxed">
                                 I&apos;m <b>Tolu</b> — a software engineer at Goldman Sachs, building event-driven microservices that power regulatory reporting for global markets.

@@ -47,7 +47,7 @@ export default function Footer() {
         "w-full px-4 py-3.5 bg-black/5 dark:bg-white/[0.04] border border-black/10 dark:border-white/10 rounded-xl font-jost text-base placeholder-black/30 dark:placeholder-white/40 backdrop-blur-md transition-all duration-300 focus:outline-none focus:border-aura-cyan/50 focus:bg-black/[0.07] dark:focus:bg-white/[0.07] focus:shadow-[0_0_0_3px_rgba(56,189,248,0.12)]";
 
     return (
-        <footer id="contact" className="mt-16 lg:mt-24 px-6 lg:px-12 pb-16 border-t border-white/5">
+        <footer id="contact" className="mt-16 lg:mt-24 px-6 lg:px-2 pb-16 border-t border-white/5">
             <div className="max-w-7xl mx-auto">
             <div className="pt-16 lg:pt-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 

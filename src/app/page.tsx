@@ -26,7 +26,7 @@ export default function HomePage() {
             <ThemeParticles />
 
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-6 py-4 lg:px-12 lg:py-5 bg-white/60 dark:bg-black/40 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
+            <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-6 py-4 lg:px-2 lg:py-5 bg-white/60 dark:bg-black/40 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
                 {/* Logo */}
                 <a href="#about" aria-label="Home" className="w-9 h-9 text-aura-cyan hover:scale-110 transition-transform">
                     <svg viewBox="0 0 48 48" className="fill-current w-full h-full">

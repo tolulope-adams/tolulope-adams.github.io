@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MapPin, Calendar, Briefcase, GraduationCap } from "lucide-react";
 import { experience } from "@/data/portfolio";
 
@@ -11,6 +12,8 @@ function TimelineCard({
     entry: typeof experience[0];
     index: number;
 }) {
+    const [isOpen, setIsOpen] = useState(index === 0);
+    const shouldReduceMotion = useReducedMotion();
     const isLeft = index % 2 === 0;
     const isEducation = entry.role.toLowerCase().includes("b.sc") || entry.role.toLowerCase().includes("m.sc");
     const Icon = isEducation ? GraduationCap : Briefcase;
@@ -37,9 +40,32 @@ function TimelineCard({
                                 <h3 className="text-xl font-instrument font-bold leading-snug">{entry.role}</h3>
                                 <p className="text-aura-cyan font-jost font-semibold text-base mt-0.5">{entry.company}</p>
                             </div>
-                            <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center border ${isEducation ? "border-aura-purple/30 bg-aura-purple/10" : "border-aura-cyan/30 bg-aura-cyan/10"}`}>
-                                <Icon className={`w-5 h-5 ${isEducation ? "text-aura-purple" : "text-aura-cyan"}`} />
-                            </div>
+                            <button
+                                onClick={() => setIsOpen((o) => !o)}
+                                aria-expanded={isOpen}
+                                aria-label={isOpen ? "Collapse details" : "Expand details"}
+                                className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center border transition-colors lg:pointer-events-none ${isEducation ? "border-aura-purple/30 bg-aura-purple/10 hover:bg-aura-purple/20" : "border-aura-cyan/30 bg-aura-cyan/10 hover:bg-aura-cyan/20"}`}
+                            >
+                                <motion.div
+                                    animate={
+                                        isOpen || shouldReduceMotion
+                                            ? { rotate: 0 }
+                                            : { rotate: [0, -8, 8, -8, 0] }
+                                    }
+                                    transition={
+                                        isOpen || shouldReduceMotion
+                                            ? { duration: 0.2 }
+                                            : { duration: 0.5, repeat: Infinity, repeatDelay: 2.5, ease: "easeInOut" }
+                                    }
+                                    className="lg:!transform-none"
+                                >
+                                    <Icon
+                                        className={`w-5 h-5 ${isEducation ? "text-aura-purple" : "text-aura-cyan"}`}
+                                        fill={isOpen ? "currentColor" : "none"}
+                                        fillOpacity={isOpen ? 0.25 : 0}
+                                    />
+                                </motion.div>
+                            </button>
                         </div>
 
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 text-sm font-jost opacity-60">
@@ -51,7 +77,32 @@ function TimelineCard({
                             </span>
                         </div>
 
-                        <ul className="flex flex-col gap-2">
+                        {/* Mobile: collapsible bullets */}
+                        <div className="lg:hidden">
+                            <AnimatePresence initial={false}>
+                                {isOpen && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                                        className="overflow-hidden"
+                                    >
+                                        <ul className="flex flex-col gap-2">
+                                            {entry.bullets.map((bullet, bi) => (
+                                                <li key={bi} className="flex items-start gap-2.5 text-base font-jost opacity-75 leading-relaxed">
+                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 bg-aura-cyan" />
+                                                    {bullet}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Desktop: always expanded */}
+                        <ul className="hidden lg:flex flex-col gap-2">
                             {entry.bullets.map((bullet, bi) => (
                                 <li key={bi} className="flex items-start gap-2.5 text-base font-jost opacity-75 leading-relaxed">
                                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 bg-aura-cyan" />
@@ -82,7 +133,7 @@ function TimelineCard({
 
 export default function ExperienceTimeline() {
     return (
-        <section id="experience" className="pt-16 lg:pt-24 px-6 lg:px-12">
+        <section id="experience" className="pt-16 lg:pt-24 px-6 lg:px-2">
             <div className="max-w-7xl mx-auto">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}

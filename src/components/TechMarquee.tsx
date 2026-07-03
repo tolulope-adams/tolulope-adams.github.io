@@ -12,7 +12,7 @@ export default function TechMarquee() {
 
     return (
         <div className="my-12">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-3 flex items-center gap-3">
+            <div className="max-w-7xl mx-auto px-6 lg:px-2 mb-3 flex items-center gap-3">
                 <span className="text-xs font-jost font-semibold tracking-[0.3em] uppercase opacity-50 shrink-0">
                     Technologies
                 </span>

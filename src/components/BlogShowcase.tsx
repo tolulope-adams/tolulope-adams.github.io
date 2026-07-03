@@ -19,7 +19,7 @@ export default function BlogShowcase() {
     };
 
     return (
-        <section className="px-6 pt-16 lg:pt-24 lg:px-12 pb-16">
+        <section className="px-6 pt-16 lg:pt-24 lg:px-2 pb-16">
             <div className="max-w-7xl mx-auto flex flex-col">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}

@@ -54,7 +54,7 @@ export default function SkillsSection() {
     const [activeId, setActiveId] = useState<string>("mobile");
 
     return (
-        <section id="skills" className="pt-16 lg:pt-24 px-6 lg:px-12">
+        <section id="skills" className="pt-16 lg:pt-24 px-6 lg:px-2">
             <div className="max-w-7xl mx-auto">
 
                 {/* Section header */}
