@@ -3,46 +3,158 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Dash Horizon';
-  src:
-    url('../../public/dash-horizon.otf') format('woff2 supports variations'),
-    url('../../public/dash-horizon.otf') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
+  font-family: 'DashHorizon';
+  src: url('/dash-horizon.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@font-face {
-  font-family: 'Mona Sans';
-  src:
-    url('../../public/Mona-Sans.woff2') format('woff2 supports variations'),
-    url('../../public/Mona-Sans.woff2') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
+/* ── Neon glass glow ring ─────────────────────────────────── */
+@keyframes neon-pulse {
+  0%, 100% { opacity: 0.16; filter: hue-rotate(0deg); }
+  50%      { opacity: var(--glow-max, 0.3); filter: hue-rotate(18deg); }
+}
+.neon-glow-ring {
+  background: conic-gradient(from 0deg, var(--aura-cyan), var(--aura-purple), var(--aura-pink), var(--aura-cyan));
+  animation: neon-pulse 8s ease-in-out infinite;
 }
 
+/* ── Light theme (default) ───────────────────────────────── */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --background-gradient: linear-gradient(to bottom, #001233, #001845, #211565, #25177a);
+  --foreground-rgb: 10, 10, 20;
+  --aura-cyan: #2563eb;
+  --aura-blue: #1d4ed8;
+  --aura-purple: #6d28d9;
+  --aura-pink: #3b82f6;
+  --aura-dark: #f0f4ff;
+  --aura-darker: #ffffff;
+  --aura-cyan-rgb: 37 99 235;
+  --aura-blue-rgb: 29 78 216;
+  --aura-purple-rgb: 109 40 217;
+  --aura-pink-rgb: 59 130 246;
+  --aura-dark-rgb: 240 244 255;
+  --aura-darker-rgb: 255 255 255;
+  --background-gradient: linear-gradient(160deg, #ffffff 0%, #eef2ff 100%);
+  --particle-color: rgba(37,99,235,0.15);
+  --glow-max: 0.14;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* ── Dark (Aura) theme ───────────────────────────────────── */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --aura-cyan: #38bdf8;
+  --aura-blue: #60a5fa;
+  --aura-purple: #818cf8;
+  --aura-pink: #a78bfa;
+  --aura-dark: #050505;
+  --aura-darker: #000000;
+  --aura-cyan-rgb: 56 189 248;
+  --aura-blue-rgb: 96 165 250;
+  --aura-purple-rgb: 129 140 248;
+  --aura-pink-rgb: 167 139 250;
+  --aura-dark-rgb: 5 5 5;
+  --aura-darker-rgb: 0 0 0;
+  --background-gradient: linear-gradient(160deg, #000000 0%, #050510 100%);
+  --particle-color: rgba(56,189,248,0.12);
+  --glow-max: 0.3;
+}
+
+/* ── Winter theme ────────────────────────────────────────── */
+.winter {
+  --foreground-rgb: 220, 240, 255;
+  --aura-cyan: #a8d8ea;
+  --aura-blue: #7ec8e3;
+  --aura-purple: #b0c4de;
+  --aura-pink: #cce5f3;
+  --aura-dark: #0a1628;
+  --aura-darker: #050d1a;
+  --aura-cyan-rgb: 168 216 234;
+  --aura-blue-rgb: 126 200 227;
+  --aura-purple-rgb: 176 196 222;
+  --aura-pink-rgb: 204 229 243;
+  --aura-dark-rgb: 10 22 40;
+  --aura-darker-rgb: 5 13 26;
+  --background-gradient: linear-gradient(160deg, #050d1a 0%, #0d1f3c 60%, #0a2040 100%);
+  --particle-color: rgba(168,216,234,0.7);
+  --glow-max: 0.26;
+}
+
+/* ── Magical theme ───────────────────────────────────────── */
+.magical {
+  --foreground-rgb: 245, 235, 255;
+  --aura-cyan: #ffd700;
+  --aura-blue: #c084fc;
+  --aura-purple: #e879f9;
+  --aura-pink: #f0abfc;
+  --aura-dark: #0d0818;
+  --aura-darker: #060310;
+  --aura-cyan-rgb: 255 215 0;
+  --aura-blue-rgb: 192 132 252;
+  --aura-purple-rgb: 232 121 249;
+  --aura-pink-rgb: 240 171 252;
+  --aura-dark-rgb: 13 8 24;
+  --aura-darker-rgb: 6 3 16;
+  --background-gradient: linear-gradient(160deg, #060310 0%, #120830 60%, #1a0a40 100%);
+  --particle-color: rgba(255,215,0,0.8);
+  --glow-max: 0.3;
+}
+
+/* Magical theme: apply DashHorizon to headings */
+.magical h1,
+.magical h2,
+.magical h3 {
+  font-family: 'DashHorizon', 'Instrument Serif', serif;
+  letter-spacing: 0.04em;
 }
 
 body {
-  /* color: rgb(var(--foreground-rgb)); */
-
-  background-color: #F0F4FA;
-  box-sizing: border-box;
-
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-gradient);
+  background-attachment: fixed;
+  transition: background 0.6s ease, color 0.3s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Snowflake particles (winter) ────────────────────────── */
+@keyframes snowfall {
+  0%   { transform: translateY(-5vh) translateX(0px) rotate(0deg); opacity: 0.9; }
+  100% { transform: translateY(105vh) translateX(80px) rotate(360deg); opacity: 0.2; }
+}
+
+.snowflake {
+  position: fixed;
+  top: -20px;
+  animation: snowfall linear infinite;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  color: var(--particle-color);
+}
+
+/* ── Star particles (magical) ────────────────────────────── */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50%       { opacity: 1;    transform: scale(1.4); }
+}
+
+@keyframes drift {
+  0%   { transform: translateY(0px) translateX(0px); }
+  50%  { transform: translateY(-12px) translateX(8px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+.magic-star {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: twinkle ease-in-out infinite, drift ease-in-out infinite;
+}
+
+/* ── Utilities ───────────────────────────────────────────── */
 .scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -55,17 +167,50 @@ body {
 @layer utilities {
   .animate-spin-gradient {
     background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-    animation: spin 2.5s linear infinite;
+    animation: spin-grad 2.5s linear infinite;
   }
 }
 
+@property --rotate {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
 
-@keyframes spin {
-  0% {
-    --rotate: 0deg;
-  }
+@keyframes spin-grad {
+  0%   { --rotate: 0deg; }
+  100% { --rotate: 360deg; }
+}
 
-  100% {
-    --rotate: 360deg;
+/* ── Tech marquee ────────────────────────────────────────── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee {
+  animation: marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Film-grain / noise overlay ──────────────────────────── */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .neon-glow-ring,
+  .snowflake,
+  .magic-star {
+    animation: none !important;
   }
 }
